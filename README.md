@@ -10,8 +10,9 @@ This command line tool allows you to generate a hash for each entry in a CSV and
 ## Installation
 
 1. Clone the repository
-2. Run `npm install`
-3. Run `npm install -g`
+2. cd into the repository
+3. Run `npm install`
+4. Run `npm install -g`
 
 ## Usage
 
