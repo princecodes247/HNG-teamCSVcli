@@ -24,7 +24,6 @@ function generate(path) {
       teamName = (obj["Serial Number"] || obj["Series Number"])
         .toString()
         .trim();
-      console.log(teamName);
       return;
     }
     // check if obj["Serial Number"] is empty
@@ -33,7 +32,6 @@ function generate(path) {
     ) {
       return;
     }
-    // console.log(obj);
     const chia0007 = generateCHIA0007(obj, teamName, json.length);
     const hash = crypto.createHash("sha256");
     const data = JSON.stringify(chia0007);
