@@ -15,7 +15,7 @@ function generate(path) {
     return;
   }
   const json = csvToJSON(csvFile.toString());
-
+  let newJSON = [];
   let teamName = "";
   //   Generate a hash for each object in the JSON array
   json.forEach((obj) => {
@@ -38,6 +38,7 @@ function generate(path) {
     hash.update(data);
     obj.HASH = hash.digest("hex");
 
+    newJSON.push(obj);
     /* Check if the object has a key of "File Name" or "Filename" or
   "Current Name". If it does, it will use that key's value as the file name. If it doesn't, it will
   use the default value of "". */
@@ -56,7 +57,7 @@ function generate(path) {
   });
 
   //   Convert JSON array to CSV
-  const newCSV = jsonToCSV(json);
+  const newCSV = jsonToCSV(newJSON);
 
   //   Create a new CSV file with the hash appended to the filename
   const newFileName = new String(path).slice(0, -4) + ".output.csv";
