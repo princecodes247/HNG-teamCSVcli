@@ -16,9 +16,25 @@ function generate(path) {
   }
   const json = csvToJSON(csvFile.toString());
 
+  let teamName = "";
   //   Generate a hash for each object in the JSON array
   json.forEach((obj) => {
-    const chia0007 = generateCHIA0007(obj, json.length);
+    // check if obj["Serial Number"] has "TEAM"
+    if ((obj["Serial Number"] || obj["Series Number"]).includes("TEAM")) {
+      teamName = (obj["Serial Number"] || obj["Series Number"])
+        .toString()
+        .trim();
+      console.log(teamName);
+      return;
+    }
+    // check if obj["Serial Number"] is empty
+    if (
+      (obj["Serial Number"] || !obj["Series Number"]).toString().trim() === ""
+    ) {
+      return;
+    }
+    // console.log(obj);
+    const chia0007 = generateCHIA0007(obj, teamName, json.length);
     const hash = crypto.createHash("sha256");
     const data = JSON.stringify(chia0007);
     hash.update(data);

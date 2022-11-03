@@ -1,4 +1,4 @@
-function generateCHIA0007(nft, total) {
+function generateCHIA0007(nft, team, total) {
   //  Create a new object with the CHIA0007 schema
   const name = nft["Current Name"] || nft["File Name"] || nft["Filename"];
   const description = nft["Description"];
@@ -11,7 +11,7 @@ function generateCHIA0007(nft, total) {
     format: "CHIA-0007",
     name: name,
     description: description,
-    minting_tool: "",
+    minting_tool: team,
     series_total: total,
     series_number: sn,
     attributes: [{ trait_type: "gender", value: gender }],
