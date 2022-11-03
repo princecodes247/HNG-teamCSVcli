@@ -18,7 +18,7 @@ function generate(path) {
 
   //   Generate a hash for each object in the JSON array
   json.forEach((obj) => {
-    const chia0007 = generateCHIA0007(obj);
+    const chia0007 = generateCHIA0007(obj, json.length);
     const hash = crypto.createHash("sha256");
     const data = JSON.stringify(chia0007);
     hash.update(data);
