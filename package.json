@@ -1,0 +1,20 @@
+{
+  "name": "team-csv-cli",
+  "version": "1.0.0",
+  "main": "bin/index.js",
+  "license": "MIT",
+  "keywords": [
+    "cli"
+  ],
+  "scripts": {
+    "start": "node bin/index.js"
+  },
+  "bin": {
+    "hash-csv": "./bin/index.js"
+  },
+  "dependencies": {
+    "chalk": "^5.1.2",
+    "commander": "^9.4.1",
+    "crypto": "^1.0.1"
+  }
+}
