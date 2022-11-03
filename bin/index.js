@@ -2,6 +2,7 @@
 const { program } = require("commander");
 const generate = require("./commands/generate");
 
+//  Define the generate command
 program
   .command("generate <filename>")
   .description(
